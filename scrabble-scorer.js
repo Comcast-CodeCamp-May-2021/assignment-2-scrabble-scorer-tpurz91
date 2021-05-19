@@ -126,6 +126,7 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
+   scorerPrompt();
   //  simpleScore("word");
   //  vowelBonusScore("wordplay")
   //  console.log(vowelBonusScore("wordplay"));
