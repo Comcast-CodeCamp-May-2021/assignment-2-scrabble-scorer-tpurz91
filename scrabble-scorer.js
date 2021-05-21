@@ -13,7 +13,7 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+	 word = word.toUpperCase;
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -36,14 +36,20 @@ function initialPrompt() {
    console.clear();
    let word = input.question("Let's play some scrabble!\n Enter a word to score: ")
   //  console.log("Let's play some scrabble!\n Enter a word to score: ")
-    console.log(oldScrabbleScorer(word));
+    // console.log(oldScrabbleScorer(word));
+     return word;
 };
-
+  
 // let simpleScore;
 // this is declaring the simpleScore function
+
  function simpleScore(word) {
    //this is the function body
-   let score = word.length;
+    word = word.toUppercase();
+   let score = 0;
+   for (let i = 0; i < word.length; i++){
+     score++;
+   }
    return score;
 // the return statement is the output.
  }
@@ -52,7 +58,7 @@ function initialPrompt() {
 function vowelBonusScore(word) {
   let score = 0
   let vowelsArray = ["A", "E", "I", "O", "U"];
-  word = word.toUpperCase();
+   word = word.toUpperCase();
     for (let i = 0; i < word.length; i++){
       if (vowelsArray.includes(word[i])) {
         score = score + 3;
@@ -64,17 +70,8 @@ function vowelBonusScore(word) {
     }
   
 
-  // let vowel = 3
-  //  for (let i = 0; i < word.length; i++) {
-    //  use if else statement??
+  
    
-
-  
-
-  
-  
-  
-
 
 let scrabbleScore;
 
@@ -101,17 +98,17 @@ const scoringAlgorithms = [
 function scorerPrompt(word) {
   
   scoringSystem = input.question("Which scoring algorithm would you like to use?\n \n 0 - Simple: One point per character\n 1 - Vowel Bonus: Vowels are worth 3 points\n 2 - Scrabble: Uses scrabble point system\n Enter 0, 1, or 2: ");
-   if (scoringSystem = 0) {
+   if (scoringSystem == 0) {
       console.log("Algorithm name: ", scoringAlgorithms[0].name);
-      console.log("Results: ", scoringAlgorithms[0].scorerFunction(word));
+      console.log("Results: ", scoringAlgorithms[0].scoringFunction(word));
     } else if  
-      (scoringSystem = 1) {
+      (scoringSystem == 1) {
         console.log("Algorithm name: ", scoringAlgorithms[1].name);
-      console.log("Results: ", scoringAlgorithms[1].scorerFunction(word));
+      console.log("Results: ", scoringAlgorithms[1].scoringFunction(word));
        } else if  
-      (scoringSystem = 2) {
+      (scoringSystem == 2) {
         console.log("Algorithm name: ", scoringAlgorithms[2].name);
-      console.log("Results: ", scoringAlgorithms[2].scorerFunction(word)); 
+      console.log("Results: ", scoringAlgorithms[2].scoringFunction(word)); 
 
       } 
       return scoringSystem;
@@ -122,6 +119,7 @@ function scorerPrompt(word) {
 
 function transform(oldPointStructure) {
   let newPoints = {};
+  // oldPointStructure = oldPointStructure.toLowerCase();
 
   for (let scoringAlgorithms in oldPointStructure) {
     // console.log(scoringAlgorithms);
@@ -136,21 +134,23 @@ function transform(oldPointStructure) {
   return newPoints;
 };
 
-transform();
+// transform();
 
 
 
 
 
 
-let newPointStructure = transform(scoringAlgorithms);
-  console.log(newPointStructure);
-
+let newPointStructure = transform(oldPointStructure);
   
 
+
+
 function runProgram() {
-   initialPrompt();
-   scorerPrompt();
+  let word = initialPrompt();
+    
+   console.log(scorerPrompt(word));
+
   //  simpleScore("word");
   //  vowelBonusScore("wordplay")
   //  console.log(vowelBonusScore("wordplay"));
