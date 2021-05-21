@@ -120,9 +120,33 @@ function scorerPrompt(word) {
   
 
 
-function transform() {};
+function transform(oldPointStructure) {
+  let newPoints = {};
 
-let newPointStructure;
+  for (let scoringAlgorithms in oldPointStructure) {
+    // console.log(scoringAlgorithms);
+    // console.log(oldPointStructure[scoringAlgorithms]);
+    let newPointStructure = oldPointStructure[scoringAlgorithms];
+    for (let i = 0; i < newPointStructure.length; i++){
+      // console.log(i);
+    newPoints[newPointStructure[i]]= scoringAlgorithms;  
+    }
+
+  }
+  return newPoints;
+};
+
+transform();
+
+
+
+
+
+
+let newPointStructure = transform(scoringAlgorithms);
+  console.log(newPointStructure);
+
+  
 
 function runProgram() {
    initialPrompt();
