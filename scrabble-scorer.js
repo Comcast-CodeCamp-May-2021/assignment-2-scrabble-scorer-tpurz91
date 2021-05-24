@@ -138,10 +138,8 @@ function transform(oldPointStructure) {
     let newPointStructure = oldPointStructure[scoringAlgorithms];
     for (let i = 0; i < newPointStructure.length; i++) {
       // console.log(i);
-      newPoints[newPointStructure[i]] = Number(scoringAlgorithms);
+      newPoints[newPointStructure[i].toLowerCase()] = Number(scoringAlgorithms);
     }
-      
-
   }
   
 
@@ -161,9 +159,10 @@ let newPointStructure = transform(oldPointStructure);
 
 
 function runProgram() {
-  let scoreWord = initialPrompt();
+  console.log(newPointStructure);
+  // let scoreWord = initialPrompt();
 
-  scorerPrompt(scoreWord);
+  // scorerPrompt(scoreWord);
 
 }
   //  simpleScore("word");
