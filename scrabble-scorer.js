@@ -74,7 +74,7 @@ function vowelBonusScore(word) {
 
 
 function scrabbleScore(word) {
-  word = word.toUpperCase();
+  word = word.toLowerCase();
    let points = 0;
    for (i = 0; i < word.length; i++) {
     //  console.log(word[i]);
@@ -159,10 +159,10 @@ let newPointStructure = transform(oldPointStructure);
 
 
 function runProgram() {
-  console.log(newPointStructure);
-  // let scoreWord = initialPrompt();
+  // console.log(newPointStructure);
+  let scoreWord = initialPrompt();
 
-  // scorerPrompt(scoreWord);
+  scorerPrompt(scoreWord);
 
 }
   //  simpleScore("word");
